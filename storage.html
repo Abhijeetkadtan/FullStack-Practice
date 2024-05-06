@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function insertInfo() {
+        let username = document.querySelector("#name");
+        let pass = document.querySelector("#password");
+        sessionStorage.setItem("name", username.value);
+        sessionStorage.setItem("password", pass.value);
+      }
+      function getInfo() {
+        let username = document.querySelector("#name");
+        let pass = document.querySelector("#password");
+        let p1 = document.querySelector("#p1");
+        let p2 = document.querySelector("#p2");
+        p1.innerText = sessionStorage.getItem("name");
+        p2.innerText = sessionStorage.getItem("password");
+      }
+      function updateInfo() {
+        let username = document.querySelector("#name");
+        let pass = document.querySelector("#password");
+        sessionStorage.setItem("name", username.value);
+        sessionStorage.setItem("password", pass.value);
+      }
+      function removeInfo() {
+        let username = document.querySelector("#name");
+        let pass = document.querySelector("#password");
+        sessionStorage.removeItem("name");
+        sessionStorage.removeItem("password");
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" placeholder="enter username" id="name" />
+    <input
+      type="password"
+      placeholder="enter password"
+      id="password"
+    /><br /><br />
+    <button onclick="insertInfo()">insert data</button>
+    <button onclick="getInfo()">get data</button><br />
+    <button onclick="updateInfo()">update data</button>
+    <button onclick="removeInfo()">remove data</button>
+    <span>username :</span>
+    <p id="p1"></p>
+    <span>password : </span>
+    <p id="p2"></p>
+  </body>
+</html>
